@@ -1,8 +1,8 @@
 # jmansor.com
 
-My portfolio site. It's a plain Jekyll site (no theme) hosted on Cloudflare Pages. Every push to `main` builds and deploys to jmansor.com, and every other branch gets its own preview link.
+My portfolio site. It's a plain Jekyll site (no theme), served by a Cloudflare Worker as static files. Every push to `main` builds and deploys to jmansor.com.
 
-Cloudflare Pages settings: build command `bundle exec jekyll build`, output directory `_site`. The Ruby version comes from `.ruby-version`.
+Cloudflare build settings: build command `bundle exec jekyll build`, deploy command `npx wrangler deploy`. Wrangler reads `wrangler.jsonc`, which points it at `_site`. The Ruby version comes from `.ruby-version`.
 
 The design is a KiCad-style schematic sheet: the home page is sheet 1, each project is a hierarchical sheet after it, and the footer is the drawing title block.
 
