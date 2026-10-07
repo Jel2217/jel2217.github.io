@@ -1,6 +1,8 @@
 # jmansor.com
 
-My portfolio site. It's a plain Jekyll site (no theme) that GitHub Actions builds and deploys to GitHub Pages whenever `main` changes. Pull requests get a test build too, without deploying.
+My portfolio site. It's a plain Jekyll site (no theme) hosted on Cloudflare Pages. Every push to `main` builds and deploys to jmansor.com, and every other branch gets its own preview link.
+
+Cloudflare Pages settings: build command `bundle exec jekyll build`, output directory `_site`. The Ruby version comes from `.ruby-version`.
 
 The design is a KiCad-style schematic sheet: the home page is sheet 1, each project is a hierarchical sheet after it, and the footer is the drawing title block.
 
@@ -46,7 +48,7 @@ Photos go in `assets/img/projects/`.
 
 ## Running it locally
 
-You need Ruby and Bundler.
+You need Ruby (the version in `.ruby-version`) and Bundler.
 
 ```sh
 bundle install
