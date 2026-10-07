@@ -49,3 +49,4 @@ exclude:
   - docs
   - node_modules
   - vendor
+  - wrangler.jsonc
