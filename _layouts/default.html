@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="preload" href="{{ '/assets/fonts/archivo-latin-standard-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/sheet.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  {% seo %}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="sheet">
+    {% include zones.html %}
+    <div class="sheet__inner">
+      <header class="masthead">
+        {% if page.url != '/' %}<a class="masthead__name" href="{{ '/' | relative_url }}">Joel Mansor</a>{% endif %}
+        <nav class="masthead__nav" aria-label="Main">
+          <a href="{{ '/#projects' | relative_url }}">Projects</a>
+          <a href="{{ '/#experience' | relative_url }}">Experience</a>
+          <a href="{{ '/#about' | relative_url }}">About</a>
+          <a href="mailto:{{ site.email }}">Email</a>
+        </nav>
+      </header>
+      <main id="main">
+        {{ content }}
+      </main>
+      {% include title-block.html %}
+    </div>
+  </div>
+</body>
+</html>

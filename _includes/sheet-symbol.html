@@ -1,0 +1,13 @@
+{%- comment -%}
+  A project drawn as a hierarchical sheet symbol: sheet name above the box,
+  global labels (tags) inside it, and the context where the file name would go.
+  Expects `project` to be set by the loop that includes it.
+{%- endcomment -%}
+<a class="sym" href="{{ project.url | relative_url }}">
+  <div class="sym__name">{{ project.title }}</div>
+  <div class="sym__box">
+    <p class="sym__summary">{{ project.description }}</p>
+    <div class="sym__labels">{% for tag in project.tags %}<span class="label">{{ tag }}</span>{% endfor %}</div>
+  </div>
+  <div class="sym__file">{{ project.context }}, {{ project.when }}</div>
+</a>

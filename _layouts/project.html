@@ -1,0 +1,77 @@
+---
+layout: default
+---
+{%- assign pj_list = site.projects | sort: "order" -%}
+{%- assign pj_index = 0 -%}
+{%- for p in pj_list -%}{%- if p.url == page.url -%}{%- assign pj_index = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- assign pj_prev_index = pj_index | minus: 1 -%}
+{%- assign pj_next_index = pj_index | plus: 1 -%}
+<article class="project">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">Home</a> <span aria-hidden="true">/</span>
+    <a href="{{ '/#projects' | relative_url }}">Projects</a> <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ page.title }}</span>
+  </nav>
+
+  <header class="project__head">
+    <h1 class="project__title">{{ page.title }}</h1>
+    <p class="project__summary">{{ page.description }}</p>
+  </header>
+
+  <dl class="facts">
+    <div class="facts__cell"><dt>When:</dt> <dd>{{ page.when }}</dd></div>
+    <div class="facts__cell"><dt>Context:</dt> <dd>{{ page.context }}</dd></div>
+    {%- if page.role %}
+    <div class="facts__cell"><dt>My part:</dt> <dd>{{ page.role }}</dd></div>
+    {%- endif %}
+    {%- if page.status %}
+    <div class="facts__cell"><dt>Status:</dt> <dd>{{ page.status }}</dd></div>
+    {%- endif %}
+  </dl>
+
+  {%- if page.tags.size > 0 %}
+  <div class="project__labels">{% for tag in page.tags %}<span class="label">{{ tag }}</span>{% endfor %}</div>
+  {%- endif %}
+
+  {%- if page.image %}
+  <figure class="project__figure">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: '' }}">
+    {%- if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
+  </figure>
+  {%- endif %}
+
+  <div class="project__body">
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {%- if page.parts %}
+  <section class="parts" aria-labelledby="parts-title">
+    <h2 id="parts-title" class="parts__title">Key parts</h2>
+    <table class="parts__table">
+      <thead><tr><th scope="col">Part</th><th scope="col">What it does</th></tr></thead>
+      <tbody>
+        {%- for item in page.parts %}
+        <tr><td>{{ item.part }}</td><td>{{ item.role }}</td></tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </section>
+  {%- endif %}
+  </div>
+
+  <nav class="pager" aria-label="More projects">
+    {%- if pj_prev_index >= 0 %}
+    {%- assign pj_prev = pj_list[pj_prev_index] %}
+    <a class="pager__link" href="{{ pj_prev.url | relative_url }}" rel="prev"><span class="pager__dir">Previous sheet</span> {{ pj_prev.title }}</a>
+    {%- else %}
+    <a class="pager__link" href="{{ '/#projects' | relative_url }}"><span class="pager__dir">Back to</span> All projects</a>
+    {%- endif %}
+    {%- if pj_next_index < pj_list.size %}
+    {%- assign pj_next = pj_list[pj_next_index] %}
+    <a class="pager__link pager__link--next" href="{{ pj_next.url | relative_url }}" rel="next"><span class="pager__dir">Next sheet</span> {{ pj_next.title }}</a>
+    {%- else %}
+    <a class="pager__link pager__link--next" href="{{ '/#projects' | relative_url }}"><span class="pager__dir">Back to</span> All projects</a>
+    {%- endif %}
+  </nav>
+</article>

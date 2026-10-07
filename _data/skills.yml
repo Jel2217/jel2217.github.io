@@ -1,0 +1,18 @@
+# Skills and tools, shown in the About section.
+- group: PCB and circuit design
+  items: Altium Designer, KiCad, LTspice, Proteus
+
+- group: Embedded
+  items: STM32, ESP32, MSP430, AVR (ATmega328P and 328PB)
+
+- group: Digital design
+  items: VHDL on Cyclone V, Quartus, QuestaSim
+
+- group: Programming
+  items: C/C++, Python, MATLAB, Java, Rust, R
+
+- group: Building services
+  items: AGi32, PowerCAD, DIALux, Bluebeam Revu
+
+- group: Workshop and other tools
+  items: SMD soldering, oscilloscopes and multimeters, laser cutting, Autodesk Inventor, Git and GitHub, Excel
