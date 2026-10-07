@@ -1,0 +1,88 @@
+---
+layout: default
+zones: 8
+---
+<section class="hero" aria-labelledby="hero-name">
+  <h1 id="hero-name" class="hero__name">Joel Mansor</h1>
+  <p class="hero__lede">I’m a third-year Electrical and Electronic Engineering student at the University of Auckland, finishing my BE(Hons) in 2027. I&nbsp;design hardware: mostly PCBs and embedded systems, and more recently power electronics.</p>
+  <div class="now">
+    <h2 class="now__title">Right now</h2>
+    <ul class="now__list">
+      {%- for item in site.data.now %}
+      <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="section" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section__title">Projects</h2>
+  <p class="section__intro">Things I’ve designed and built, at uni and on my own.</p>
+  <ul class="symbols">
+    {%- assign projects = site.projects | sort: "order" %}
+    {%- for project in projects %}
+    <li>{% include sheet-symbol.html %}</li>
+    {%- endfor %}
+  </ul>
+
+  <h3 class="subhead">Other things I’ve worked on</h3>
+  <ul class="others">
+    {%- for item in site.data.other_projects %}
+    <li class="others__item">
+      <span class="others__title">{{ item.title }}</span>{% if item.context %} <span class="others__context">{{ item.context }}</span>{% endif %}
+      <span class="others__summary">{{ item.summary }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section id="experience" class="section" aria-labelledby="experience-title">
+  <h2 id="experience-title" class="section__title">Experience</h2>
+  <ul class="entries">
+    {%- for job in site.data.experience %}
+    <li class="entry">
+      <p class="entry__head"><span class="entry__role">{{ job.role }}</span>, {{ job.org }}</p>
+      <p class="entry__when">{{ job.when }}{% if job.where %}, {{ job.where }}{% endif %}</p>
+      <p class="entry__summary">{{ job.summary }}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+
+  <h3 class="subhead">Leadership and music</h3>
+  <ul class="entries">
+    {%- for item in site.data.leadership %}
+    <li class="entry">
+      <p class="entry__head"><span class="entry__role">{{ item.role }}</span>, {{ item.org }}</p>
+      <p class="entry__when">{{ item.when }}</p>
+      <p class="entry__summary">{{ item.summary }}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section id="about" class="section" aria-labelledby="about-title">
+  <h2 id="about-title" class="section__title">About</h2>
+  <div class="about">
+    <div class="about__text">
+      <p>I got into electronics by playing around with small hobbyist electronics in high school, which led me down the rabbit hole of designing my own hardware. These days that mostly means PCB design (in Altium and KiCad), embedded firmware in C and C++, and power electronics, and I like working from datasheets and first principles.</p>
+      <p>I’m also a French horn player, so quite a few of my projects end up making sound, or helping other musicians make it. Outside of engineering I like sailing and reading.</p>
+      <p>If you’d like to get in touch, email me at <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% if site.linkedin_username %} or find me on <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/">LinkedIn</a>{% endif %}.</p>
+    </div>
+
+    <div class="about__facts">
+      <h3 class="subhead subhead--tight">Education</h3>
+      <div class="entry entry--plain">
+        <p class="entry__head"><span class="entry__role">BE(Hons), Electrical and Electronic Engineering</span>, University of Auckland</p>
+        <p class="entry__when">2024 – 2027</p>
+        <p class="entry__summary">GPA 8.45/9. Dean’s Honours List in 2024 and 2025.</p>
+      </div>
+
+      <h3 class="subhead">Skills and tools</h3>
+      <dl class="skills">
+        {%- for group in site.data.skills %}
+        <div class="skills__row"><dt>{{ group.group }}</dt><dd>{{ group.items }}</dd></div>
+        {%- endfor %}
+      </dl>
+    </div>
+  </div>
+</section>

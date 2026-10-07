@@ -1,0 +1,13 @@
+{%- comment -%}
+  The zone references around the edge of a drawing sheet: numbers along the top and
+  bottom, letters down the sides (I and O are skipped, as on real drawings).
+  A page can ask for more rows with `zones: 8` in its front matter.
+{%- endcomment -%}
+{%- assign zone_rows = page.zones | default: 6 -%}
+{%- assign zone_letters = "A,B,C,D,E,F,G,H,J,K,L,M" | split: "," -%}
+<div class="zones" aria-hidden="true">
+  <div class="zones__h zones__h--top">{% for n in (1..6) %}<span>{{ n }}</span>{% endfor %}</div>
+  <div class="zones__h zones__h--bottom">{% for n in (1..6) %}<span>{{ n }}</span>{% endfor %}</div>
+  <div class="zones__v zones__v--left">{% for n in (1..zone_rows) %}<span>{{ zone_letters[forloop.index0] }}</span>{% endfor %}</div>
+  <div class="zones__v zones__v--right">{% for n in (1..zone_rows) %}<span>{{ zone_letters[forloop.index0] }}</span>{% endfor %}</div>
+</div>

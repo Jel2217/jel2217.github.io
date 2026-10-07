@@ -1,0 +1,24 @@
+{%- comment -%}
+  The drawing title block, in the bottom-right corner of every page.
+  The home page is sheet 1 and each project is a sheet after it, in `order`.
+{%- endcomment -%}
+{%- assign tb_projects = site.projects | sort: "order" -%}
+{%- assign tb_total = tb_projects.size | plus: 1 -%}
+{%- assign tb_number = 1 -%}
+{%- for p in tb_projects -%}
+  {%- if p.url == page.url -%}{%- assign tb_number = forloop.index | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+<footer class="title-block">
+  <div class="tb tb--wide"><span class="tb__label">Sheet:</span> {{ page.url }}</div>
+  <div class="tb tb--wide tb--title"><span class="tb__label">Title:</span> <span class="tb__title">{{ page.title | default: site.title }}</span></div>
+  <div class="tb tb--date"><span class="tb__label">Date:</span> <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: "%Y-%m-%d" }}</time></div>
+  <div class="tb"><span class="tb__label">Id:</span> {% if page.unnumbered %}–{% else %}{{ tb_number }}/{{ tb_total }}{% endif %}</div>
+  <div class="tb tb--wide tb--contact">
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+    {%- if site.linkedin_username %}
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/">LinkedIn</a>
+    {%- endif %}
+  </div>
+  <div class="tb tb--wide tb--credit">Drawn by Joel Mansor. Built with Jekyll.</div>
+</footer>
