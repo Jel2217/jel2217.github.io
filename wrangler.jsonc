@@ -7,5 +7,8 @@
     "directory": "./_site",
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
-  }
+  },
+  // Lets other branches get preview links (`wrangler preview`). Empty means
+  // previews use the same settings as the live site.
+  "previews": {}
 }
