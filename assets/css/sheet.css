@@ -859,6 +859,43 @@ main {
   font-weight: 700;
 }
 
+/* Extra photos below the write-up */
+
+.gallery {
+  max-width: 64rem;
+  margin-top: 56px;
+}
+
+.gallery__title {
+  margin-bottom: 16px;
+  font-size: 1.625rem;
+  font-weight: 700;
+  font-stretch: 78%;
+  line-height: 1.2;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 28px 24px;
+  align-items: start;
+}
+
+.gallery__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
+.gallery__item figcaption,
+.project__figure figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
 .pager {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

@@ -4,17 +4,5 @@
   summary: A capacitive water level sensor with a 555-timer infrared transmitter and a multi-stage receiver circuit.
 
 - title: Lighting design
-  context: ENLIGHT 310
+  context: ELECTENG 310
   summary: A lighting design in DIALux to AS/NZS 1680, including the case for the emergency lighting.
-
-- title: Air hockey robot
-  summary: An air hockey robot with a holonomic drive and optical flow localisation.
-
-- title: NFC-powered e-ink display
-  summary: An e-ink display design that runs on power from NFC.
-
-- title: Retroreflector optical link
-  summary: Optical communication using a retroreflector.
-
-- title: EWI synth
-  summary: Recreating the analogue synthesis of an EWI (electronic wind instrument).

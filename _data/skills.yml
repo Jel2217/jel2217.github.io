@@ -1,6 +1,6 @@
 # Skills and tools, shown in the About section.
 - group: PCB and circuit design
-  items: Altium Designer, KiCad, LTspice, Proteus
+  items: Altium Designer, LTspice, Proteus
 
 - group: Embedded
   items: STM32, ESP32, MSP430, AVR (ATmega328P and 328PB)

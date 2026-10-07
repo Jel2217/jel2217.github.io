@@ -5,7 +5,7 @@ order: 1
 when: 2026
 context: Personal project
 status: In progress
-tags: [STM32, YIN pitch detection, I²S audio, Li-ion power, KiCad]
+tags: [STM32, YIN pitch detection, I²S audio, Li-ion power, Altium]
 parts:
   - part: STM32
     role: Microcontroller, running the pitch detection
@@ -33,7 +33,7 @@ Breath is humid, so part of the design is managing airflow around the moisture-s
 
 ## Hardware
 
-I’ve drawn the schematics in KiCad, including a Li-ion protection circuit that went through several rounds of review.
+I’m designing the hardware in Altium, and the Li-ion protection circuit has been through several rounds of review.
 
 Power comes from a single 18650 cell. A BQ24074 handles charging and a TPS63020 buck-boost makes the 3.3 V rail. The BQ24074 only covers the charging side, so over-discharge and short circuits on the load side need their own protection circuit. Power on and off is a soft latch through the charger’s SYSOFF pin, with the microcontroller holding the system on through an open-drain output. USB-C passes data through and has CC resistors and ESD protection.
 
